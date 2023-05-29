@@ -9,7 +9,7 @@ import SharedLayout from "./pages/SharedLayout"
 
 const App = () => {
   return (
-    <div className="bg-gradient-to-b from-sky-700 to-cyan-400 min-h-screen text-slate-100">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayout/>}>

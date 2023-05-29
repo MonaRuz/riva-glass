@@ -1,0 +1,74 @@
+.reservation-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 100vh;
+    min-height: 550px;
+    max-width: 750px;
+
+    background-color:rgba(242, 242, 242, .2);
+
+    margin:0 auto;
+    margin: 1em 0;
+    border-radius: 1em;
+    
+}
+
+.reservation-section h2{
+    font-size: 1.5em;
+
+    padding-top: 0.5em;
+    border-bottom: 1px solid;
+    margin-bottom: 1em;
+}
+
+.date-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 200px;
+    font-size:1.1em;
+    padding-left: 2.5em;
+}
+
+.date-link,.date-row p{
+    display: inline-block;
+    width: 100px;
+
+    padding: 0.5em 1em;
+    margin-bottom: 0.3em;
+
+    font-weight: 600;
+    color: rgba(1, 34, 63, 1);
+
+    background-color: rgba(242, 242, 242, 0.3);
+    border-radius: 1em;
+    border:1px solid rgba(1, 34, 63, 1);
+}
+
+.date-link:hover{
+    color: rgba(242, 242, 242, 1);
+    background-color:rgba(1, 34, 63, 1) ;
+    transition: all 0.4s;
+}
+
+.date-row p{
+    width: 50px;
+    padding-left: 8px;
+}
+
+.loader{
+    margin:auto;
+    border: 6px solid rgba(1, 34, 63, 0.5); 
+    border-top: 6px solid rgba(242, 242, 242, 1); 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

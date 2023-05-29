@@ -18,6 +18,7 @@ import image17 from "../images/IMG_6306.jpg"
 import image18 from "../images/IMG_6308.jpg"
 import image19 from "../images/IMG_6310.jpg"
 import image20 from "../images/IMG_6312.jpg"
+import "./Gallery.css"
 
 
 const Gallery = () => {
@@ -25,11 +26,11 @@ const Gallery = () => {
   imageArray.push(image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12,image13,image14,image15,image16,image17,image18,image19,image20)
 
   return (
-    <section className="h-100vh">
-      <div className="flex flex-wrap justify-center">
+    <section className="section-galerry">
+      <div className="images-container">
         {imageArray.map((onePhoto)=>{
           return( 
-          <img className="w-1/6 m-3 border-[3px] border-sky-950" src={onePhoto} key={onePhoto}>{}</img>
+          <img className="image" src={onePhoto} key={onePhoto}>{}</img>
           )
         })}
       </div>

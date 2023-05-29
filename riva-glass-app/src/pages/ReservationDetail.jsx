@@ -1,3 +1,4 @@
+import "./ReservationDetail.css"
 import { useParams } from "react-router-dom"
 import { projectFirestore } from "../firebase/config"
 import { useState, useEffect } from "react"
@@ -48,7 +49,6 @@ const ReservationDetail = () => {
 			}
 		}
 	}
-	console.log(typeof(adress))
 	useEffect(() => {
 		projectFirestore
 			.collection("dates")
@@ -81,43 +81,38 @@ const ReservationDetail = () => {
 	
 
 	return (
-		<section className="max-h-[100vh] min-h-[550px] flex flex-col items-center">
+		<section className="section-detail">
 			{error}
-			<h1 className="text-xl mb-1">Zarezervovat na den: {data} (9:00)</h1>
-			<hr className="w-[400px] inline mb-3"  />
-			<p className="mb-3">
-				V případězměny otevírací doby Vás kontaktujeme prostřednictvím zadaného e-mailu.
+			<h1>Zarezervovat na den: {data} (9:00)</h1>
+			<p>
+				V případě změny otevírací doby v termínu Vaší rezervace Vás kontaktujeme prostřednictvím zadaného e-mailu.
 			</p>
 			<form
-				className='text-sky-950 flex flex-col items-center'
 				onSubmit={submitForm}
 			>
 				<div>
-					<label htmlFor="name" className="pr-3 inline-block w-[100px]">Jméno:</label>
-					<input className="my-1 pl-1"
+					<label htmlFor="name">Jméno:</label>
+					<input
 					id="name"
 					type='text'
-					placeholder='Zadejte jméno'
 					onChange={(e) => setName(e.target.value)}
 					value={name}
 					/>
 				</div>
 				<div>
-					<label htmlFor="mail" className="pr-3 inline-block w-[100px]">e-mail:</label>
-					<input className="my-1 pl-1"
+					<label htmlFor="mail">e-mail:</label>
+					<input
 					id="mail"
 					type='email'
-					placeholder='Zadejte váš email'
 					onChange={(e) => setEmail(e.target.value)}
 					value={email}
 				/>
 				</div>
 				<div>
-					<label htmlFor="count" className="pr-3 inline-block w-[100px]">Počet osob:</label>
-					<input className="my-1 pl-1"
+					<label htmlFor="count">Počet osob:</label>
+					<input
 					id="count"
 					type='number'
-					placeholder='Počet osob'
 					min='1'
 					onChange={(e) => setNumberOfPersons(parseInt(e.target.value))}
 					value={numberOfPersons}
@@ -128,7 +123,6 @@ const ReservationDetail = () => {
 					<input
 					id='adress'
 					type='text'
-					placeholder='adresa'
 					onChange={(e)=>setAdresss(e.target.value)}
 					value={adress}
 				/>
@@ -140,13 +134,13 @@ const ReservationDetail = () => {
 				/>
 			</form>
 			{notification && (
-				<div>
+				<div className="notification">
 					<p>
 						Vaše rezervace byla vytvořena na den {data} v
-						9:00. Těšíme se na Vás
+						9:00. Těšíme se na Vás.
 					</p>
 					<p>
-						Rezervaci můžete zrušit, když nás kontaktujete na adrese{" "}
+						Rezervaci můžete zrušit nebo upravit prostřednictvím tohoto emailu:{" "}
 						<e-mail>mona.ruz@seznam.cz</e-mail>{" "}
 					</p>
 				</div>

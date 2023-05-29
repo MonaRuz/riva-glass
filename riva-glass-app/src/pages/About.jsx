@@ -1,8 +1,8 @@
-
+import "./About.css"
 
 const About = () => {
   return (
-    <section className="max-h-[100vh] min-h-[550px] flex flex-col items-center pt-6">
+    <section className="section-about">
       <p className="w-3/5 text-center">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ipsa distinctio molestias nobis possimus atque nostrum cum dolore illum, rem error eum itaque non dicta vero, aperiam sequi minus cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit, rerum architecto consequuntur illum voluptatem perspiciatis officia eos inventore. Nihil quaerat earum amet voluptates natus? Quos recusandae aperiam necessitatibus illo. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam autem nulla harum illum non earum, recusandae praesentium, alias labore rem, reiciendis sit? Id delectus minus deleniti soluta. Earum, tenetur? Aut.
       </p>

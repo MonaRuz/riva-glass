@@ -1,3 +1,4 @@
+import "./Reservation.css"
 import { Link } from "react-router-dom"
 import { projectFirestore } from "../firebase/config"
 import { useState, useEffect } from "react"
@@ -5,6 +6,7 @@ import { useState, useEffect } from "react"
 const Reservation = () => {
 	const [data, setData] = useState([])
 	const [error, setError] = useState("")
+	const[loading,setLoading]=useState(true)
 
 	useEffect(() => {
 		projectFirestore
@@ -25,6 +27,7 @@ const Reservation = () => {
 						return aNum - bNum
 					})
 					setData(result)
+					setLoading(false)
 				}
 			})
 
@@ -34,9 +37,9 @@ const Reservation = () => {
 	}, [])
 	console.log(data)
 	return (
-		<section className='max-h-[h-100vh] min-h-[550px] flex flex-col items-center'>
-			<h2 className='text-xl'>Vyberte si datum návštěvy</h2>
-			<hr className=' w-[300px] my-2' />
+		<section className='reservation-section'>
+			{loading ? <div className="loader"></div>:<div>
+			<h2>Vyberte si datum návštěvy</h2>
 			{error && <p>{error}</p>}
 
 			{data.map((oneDate) => {
@@ -44,22 +47,24 @@ const Reservation = () => {
 				if(count<10){
 					return (
 						<div
-							className='w-[200px] flex flex-row justify-between'
+							className='date-row'
 							key={id}
 						>
 							<Link
-								className='bg-[#4FA1C2] transition ease-in-out duration-300 hover:bg-[#3e7f99] text-lg text-slate-100 my-1 border-slate-100 border-[1px] w-[100px] px-3 inline-block rounded-md'
+								className='date-link'
 								to={`/reservation-detail/${id}`}
 							>
 								{date}
 							</Link>
-							<p className='bg-[#4FA1C2] transition ease-in-out duration-300 hover:bg-[#3e7f99] text-lg text-slate-100 my-1 border-slate-100 border-[1px] w-[50px]inline-block rounded-md px-1'>{count}/10</p>
+							<p>{count}/10</p>
 						</div>
 					)
 				}
 
 				
 			})}
+			</div>
+}
 		</section>
 	)
 }

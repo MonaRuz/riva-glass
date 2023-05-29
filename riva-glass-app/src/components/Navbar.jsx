@@ -1,17 +1,28 @@
+import "./Navbar.css"
 import {NavLink} from "react-router-dom"
+import {RxHamburgerMenu} from "react-icons/rx"
+import { useState } from "react"
 
 const Navbar = () => {
+  const[showMenu,setShowMenu]=useState(true)
   return (
-    <header>
-      <nav className="flex flex-row justify-between items-center mb-3 py-3 px-3">
-        <p className="font-[Yellowtail] text-6xl">Riva Glass</p>
-        <NavLink className="hover:bg-[#4FA1C2] mr-[20px] text-xl font-semibold py-2 px-4 rounded-lg" to="/">Galerie a obchod</NavLink>
-        <NavLink className="hover:bg-[#4FA1C2] mr-[20px] text-xl font-semibold py-2 px-4 rounded-lg" to="reservation">Rezervace</NavLink>
-        <NavLink className="hover:bg-[#4FA1C2] mr-[20px] text-xl font-semibold py-2 px-4 rounded-lg" to="about">O nás</NavLink>
-        <NavLink className="hover:bg-[#4FA1C2] mr-[20px] text-xl font-semibold py-2 px-4 rounded-lg" to="gallery">Fotogalerie</NavLink>
-        <NavLink className="hover:bg-[#4FA1C2] mr-[20px] text-xl font-semibold py-2 px-4 rounded-lg" to="contacts">Kontakty</NavLink>
+      <nav>
+        <div className="navigation">
+          <div className="nav-header">
+            <p className="logo">Riva Glass</p>
+            <button onClick={()=>setShowMenu(!showMenu)} className="button">
+            <RxHamburgerMenu/>
+            </button>
+          </div>
+          <div className={`${showMenu?"nav-list hide":"nav-list show"}`}>
+            <NavLink className="link" to="/">Úvod</NavLink>
+            <NavLink className="link" to="reservation">Rezervace</NavLink>
+            <NavLink className="link" to="about">O nás</NavLink>
+            <NavLink className="link" to="gallery">Fotogalerie</NavLink>
+            <NavLink className="link" to="contacts">Kontakty</NavLink>
+          </div>
+        </div>
       </nav>
-    </header>
   )
 }
 

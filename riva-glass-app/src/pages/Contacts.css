@@ -1,0 +1,42 @@
+
+.section-contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 750px;
+    min-height: 550px;
+    max-height: 100vh;
+
+    margin: 1em auto;
+    font-size: 1.1em;
+
+    background-color: rgba(242, 242, 242, .2);
+    border-radius: 1em;
+}
+.contacts{
+    margin-bottom:1em;
+}
+.contacts p,.contacts h2{
+    text-align: center;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.icon{
+    display: flex;
+    margin-right: 0.5em;
+    
+}
+.icon svg{
+    font-size: 1.5em;
+}
+.leaflet-container{
+    width:300px;
+    height: 300px;
+    margin-top: 2em;
+    border: 2px solid rgba(242, 242, 242, 1);
+}

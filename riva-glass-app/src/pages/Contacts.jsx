@@ -1,28 +1,38 @@
+import "./Contacts.css"
 import {FiMail,FiPhone} from "react-icons/fi"
+import { MapContainer, TileLayer,Popup,Marker} from 'react-leaflet'
 
 const Contacts = () => {
   return (
-    <section className="max-h-[100vh] min-h-[550px]">
-      <div className="mb-5">
-        <div>
-          <p className="text-center">Václav Růžička</p>
-          <h2 className="text-center">RIVA GLASS</h2>
-          <p className="text-center">Gen.Svobody 308</p>
-          <p className="text-center">473 01   Nový Bor</p>
-          <p className="text-center">IČO: 41322347</p>
-        </div>
+    <section className="section-contacts">
+      <div className="contacts">
+          <p>Václav Růžička</p>
+          <h2>RIVA GLASS</h2>
+          <p>Gen.Svobody 308</p>
+          <p>473 01   Nový Bor</p>
+          <p>IČO: 41322347</p>
       </div>
-      <div className="flex justify-center">
-        <div className="flex">
-          <FiPhone className="mr-1 text-2xl"/>
-          <a className="mr-5" href="tel:777 318 949">777 318 949</a>
+      <div className="icons">
+        <div className="icon">
+          <FiPhone className="icon"/>
+          <a href="tel:777 318 949">777 318 949</a>
         </div>
-        <div className="flex">
-          <FiMail className="mr-1 text-2xl"/>
+        <div className="icon">
+          <FiMail className="icon"/>
           <a href="mailto:rivaglass@tiscali.cz">rivaglass@tiscali.cz</a>
         </div>
       </div>
-      
+          <MapContainer className="leaflet-container" center={[50.7770194, 14.5428644]} zoom={11} scrollWheelZoom={false}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[50.7770194, 14.5428644]}>
+              <Popup>
+                  Galerie Riva Glass
+              </Popup>
+            </Marker>
+          </MapContainer>
     </section>
   )
 }

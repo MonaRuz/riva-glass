@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.active{
-    background-color: #4FA1C2;
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
+
+
+
 
