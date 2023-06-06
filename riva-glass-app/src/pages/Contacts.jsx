@@ -22,17 +22,6 @@ const Contacts = () => {
           <a href="mailto:rivaglass@tiscali.cz">rivaglass@tiscali.cz</a>
         </div>
       </div>
-          <MapContainer className="leaflet-container" center={[50.7770194, 14.5428644]} zoom={11} scrollWheelZoom={false}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[50.7770194, 14.5428644]}>
-              <Popup>
-                  Galerie Riva Glass
-              </Popup>
-            </Marker>
-          </MapContainer>
     </section>
   )
 }

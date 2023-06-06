@@ -1,5 +1,10 @@
 /*min 700px*/
 
+@font-face {
+    font-family: "quantumn";
+    src: url("fonts/quantumn-webfont.woff") format('woff');
+  }
+
 nav {
     color:rgba(242, 242, 242, 1);
 	background-color: rgba(1, 35, 64, 0.408);
@@ -24,7 +29,7 @@ nav {
 .logo {
 	display: inline-block;
 
-	font-family: "Yellowtail", cursive;
+	font-family: "quantumn";
 	font-size: 4em;
 
 	margin-left: 0.5em;
