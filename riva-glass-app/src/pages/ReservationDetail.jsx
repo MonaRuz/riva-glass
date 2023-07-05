@@ -1,5 +1,5 @@
 import "./ReservationDetail.css"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { projectFirestore } from "../firebase/config"
 import { useState, useEffect } from "react"
 
@@ -83,7 +83,7 @@ const ReservationDetail = () => {
 	return (
 		<section className="section-detail">
 			{error}
-			<h1>Zarezervovat na den: {data} (9:00)</h1>
+			<h1>Zarezervovat na den: {data}</h1>
 			<p>
 				V případě změny otevírací doby v termínu Vaší rezervace Vás kontaktujeme prostřednictvím zadaného e-mailu.
 			</p>
@@ -132,12 +132,12 @@ const ReservationDetail = () => {
 					type='submit'
 					value='Rezervovat'
 				/>
+				<p className="gdpr">Odesláním formuláře udělíte souhlas se zpracováním osobních údajů.<br/><Link className="link-gdpr" to="/gdpr">Více informací</Link> </p>
 			</form>
 			{notification && (
 				<div className="notification">
 					<p>
-						Vaše rezervace byla vytvořena na den {data} v
-						9:00. Těšíme se na Vás.
+						Vaše rezervace byla vytvořena na den {data}. Pokud dorazíte později, prohlídka začne vždy od celé hodiny. Těšíme se na Vás.
 					</p>
 					<p>
 						Rezervaci můžete zrušit nebo upravit prostřednictvím tohoto emailu:{" "}

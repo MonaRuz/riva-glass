@@ -25,37 +25,34 @@
 }
 .introduction h1{
     margin-bottom: 1em;
-
-    font-style: italic;
     font-size: 1.5em;
-    font-weight: 600;
-    text-align: center;
-
     border-bottom: 1px solid;
 }
 .introduction p{
     margin-bottom: 1em;
 
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .reservation-button{
     display: inline-block;
 
-    padding: .4em 1em;
+    padding: .2em 1em;
 
     background-color:  rgba(43, 95, 140, 1);
     color: rgba(242, 242, 242, 1);
-    font-size: 1.3em;
+    font-size: 1.2em;
+
+    margin-bottom: 1em;
 
     border-radius: 1em;
     transition: all 0.4s;
+    cursor: pointer;
 }
-.reservation-button:hover{
-    background-color:transparent;
-    color:rgba(1, 34, 63, 1);
-    border:1px solid rgba(1, 34, 63, 1);
+.reservation-button:hover,.reservation-button:focus{
+    background-color: rgba(242, 242, 242, 1);
+    color: rgba(1, 34, 63, 1);
     transition: all 0.4s;
 }
 .where-we-are{
@@ -83,4 +80,13 @@
 }
 .map-link{
     text-decoration: underline;
+}
+
+@media (max-width:760px){
+    .introduction{
+        border-radius: 0;
+    }
+    .where-we-are{
+        border-radius: 0;
+    }
 }

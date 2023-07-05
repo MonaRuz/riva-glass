@@ -1,0 +1,15 @@
+.section-gallery{
+    height: 100vh;
+}
+.images-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.image{
+    width: 300px;
+    height: auto;
+    border:2px solid;
+    margin: 1em;
+}

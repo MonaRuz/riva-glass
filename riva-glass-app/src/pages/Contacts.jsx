@@ -1,6 +1,6 @@
 import "./Contacts.css"
 import {FiMail,FiPhone} from "react-icons/fi"
-import { MapContainer, TileLayer,Popup,Marker} from 'react-leaflet'
+import image1 from "../images/jpeg-optimizer_sklo_8.jpg"
 
 const Contacts = () => {
   return (
@@ -12,6 +12,12 @@ const Contacts = () => {
           <p>473 01   Nový Bor</p>
           <p>IČO: 41322347</p>
       </div>
+      <div className="opening-hours">
+        <h2>Otevírací doba:</h2>
+        <p>Po 09:00-17:00</p>
+        <p>Po dohodě si lze domluvit termín i čas mimo pevně stanovenou otevíraci dobu.<br/> Stačí nás kontaktovat.</p>
+      </div>
+      <img src={image1} alt="" />
       <div className="icons">
         <div className="icon">
           <FiPhone className="icon"/>

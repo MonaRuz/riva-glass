@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 const Reservation = () => {
 	const [data, setData] = useState([])
 	const [error, setError] = useState("")
-	const[loading,setLoading]=useState(true)
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
 		projectFirestore
@@ -21,11 +21,6 @@ const Reservation = () => {
 						result.push({ id: oneDate.id, ...oneDate.data() })
 					})
 
-					result.sort(function (a, b) {
-						let aNum = parseInt(a.date.split(".")[0])
-						let bNum = parseInt(b.date.split(".")[0])
-						return aNum - bNum
-					})
 					setData(result)
 					setLoading(false)
 				}
@@ -35,36 +30,45 @@ const Reservation = () => {
 				setError(err.message)
 			})
 	}, [])
-	console.log(data)
+
+
 	return (
 		<section className='reservation-section'>
-			{loading ? <div className="loader"></div>:<div>
-			<h2>Vyberte si datum návštěvy</h2>
-			{error && <p>{error}</p>}
+			{loading ? (
+				<div className='loader'></div>
+			) : (
+				<div>
+					<h2>Rezervujte si datum komentované prohlídky naší galerie</h2>
+					{error && <p>{error}</p>}
 
-			{data.map((oneDate) => {
-				const { id, count, date } = oneDate
-				if(count<10){
-					return (
-						<div
-							className='date-row'
-							key={id}
-						>
-							<Link
-								className='date-link'
-								to={`/reservation-detail/${id}`}
-							>
-								{date}
-							</Link>
-							<p>{count}/10</p>
-						</div>
-					)
-				}
-
-				
-			})}
-			</div>
-}
+					{data.map((oneDate) => {
+						const { id, count, date } = oneDate
+						if (count < 10) {
+							return (
+								<div
+									className='date-row'
+									key={id}
+								>
+									<Link
+										className='date-link'
+										to={`/reservation-detail/${id}`}
+									>
+										{date}
+									</Link>
+									<p className='counter'>{count}/10</p>
+								</div>
+							)
+						}
+					})}
+					<p className='reservation-contact'>
+						Rezervovat datum si můžete také na tel. čísle:{" "}
+						<a href='tel:+420 777 318 949'>777 318 949</a>
+						<br />
+						nebo na e-mailové adrese: <a href='mailto:rivaglass@seznam.cz'></a>
+						rivaglass@seznam.cz
+					</p>
+				</div>
+			)}
 		</section>
 	)
 }
